@@ -34,7 +34,7 @@ class SendNotification
     private function send($reqIds, $msg)
     {
         // Replace with the real server API key from Google APIs
-        $apiKey = "AIzaSyAbQGdIgvaCvwRBUclA_B0Uj6p9682wMSo";
+        $apiKey = "AIzaSyAchPd-na8tNIfGmbHjrejJfUvM8Rd3_ZY";
 
 
         // Message to be sent

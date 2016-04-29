@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class DeviceidController extends Controller
+class DeviceidController extends ApiController
 {
     public function registerDeviceId(Request $request)
     {
