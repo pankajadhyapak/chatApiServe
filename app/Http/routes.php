@@ -20,6 +20,7 @@ $api->version('v1', function ($api) {
         	//Auth Routes
         	$api->group( [ 'middleware' => 'jwt.auth' ], function ($api) {
             	$api->get('me', 'Auth\AuthController@me');
+            	$api->get('users', 'ApiController@allUsers');
                 $api->post('/user/registerDeviceId', 'DeviceidController@registerDeviceId');
         	});
 	});
