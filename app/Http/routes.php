@@ -5,6 +5,12 @@ Route::get('/test/{id}', function($id){
     return  $sn->sendNotification();
 });
 
+Route::get('/t', function(){
+	$m = \App\Message::first();
+
+	dd(json_encode($m->toArray()));
+});
+
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function ($api) {
@@ -22,6 +28,9 @@ $api->version('v1', function ($api) {
             	$api->get('me', 'Auth\AuthController@me');
             	$api->get('users', 'ApiController@allUsers');
                 $api->post('/user/registerDeviceId', 'DeviceidController@registerDeviceId');
+                $api->get('chatMsgs', 'ApiController@getChatMsgs');
+                $api->post('chatMsgs', 'ApiController@saveChatMsgs');
+                $api->post("chatMsgs/image", 'ApiController@saveChatMsgWithImage');
         	});
 	});
 });

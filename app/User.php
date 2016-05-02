@@ -33,4 +33,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(DeviceId::class);
     }
+
+    public function getSentMsgs()
+    {
+        return $this->hasMany(Message::class, 'sent_by');
+    }
+
+    public function getReceivedMsgs()
+    {
+        return $this->hasMany(Message::class, 'sent_to');
+    }
+
+    public function ChatMsgs($otherUser)
+    {
+        return Message::where(['sent_by' => $this->id, 'sent_to' =>$otherUser->id])
+            ->orWhere((['sent_by' => $otherUser->id, 'sent_to' =>$this->id]))
+
+            ->get();
+    }
 }
